@@ -8,6 +8,7 @@ import Defects from "./components/Defects";
 import TextVsDataGaps from "./components/TextVsDataGaps";
 import Competitors from "./components/Competitors";
 import Keywords from "./components/Keywords";
+import Wikidata from "./components/Wikidata";
 import Recommendations from "./components/Recommendations";
 import Footer from "./components/Footer";
 
@@ -24,6 +25,7 @@ export default function App() {
       <TextVsDataGaps data={payload} />
       <Competitors data={payload} />
       <Keywords data={payload} />
+      <Wikidata data={payload} />
       <Recommendations data={payload} />
       <Footer data={payload} />
     </div>

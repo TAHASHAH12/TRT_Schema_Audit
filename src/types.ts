@@ -24,6 +24,16 @@ export interface AuditPayload {
     topKeywords: { keyword: string; volume: number; position: number; url: string; traffic: number; kd: number; flag: string | null }[];
     localWinsTop5: { keyword: string; position: number; volume: number }[];
   };
+  wikidata: {
+    totalKeywords: number;
+    scoredAboveThreshold: number;
+    verifiedCorrect: number;
+    noEntityFound: number;
+    method: string;
+    verifiedMatches: { keyword: string; qid: string; label: string; description: string; score: number }[];
+    wrongSenseMatches: { keyword: string; qid: string; label: string; description: string; score: number }[];
+    noResultTerms: string[];
+  };
   schemaInventory: { pageType: string; url: string; types: string[]; count: number; note: string }[];
   defects: { id: string; title: string; severity: "high" | "medium" | "low"; description: string; examples: { page: string; field: string; value: string }[]; impact: string }[];
   textVsDataGaps: { topic: string; evidence: string; gapType: string }[];

@@ -64,6 +64,30 @@
       {"keyword":"inbody scan near me","position":5,"volume":3800}
     ]
   },
+  "wikidata": {
+    "totalKeywords": 100,
+    "scoredAboveThreshold": 15,
+    "verifiedCorrect": 4,
+    "noEntityFound": 80,
+    "method": "The top 100 Ahrefs keywords by volume were queried against Wikidata, then every candidate above the 0.55 semantic-similarity threshold was re-read by its description rather than trusted on score. Medical/pharma keywords hit a distinct failure mode here: Wikidata is heavily populated with scholarly-article metadata, so a query like \"low testosterone\" or \"testosterone levels\" doesn't resolve to a general concept — it resolves to one specific 2010 or 1998 journal article that happens to share the title, which is a wrong-type match even when the topic looks right.",
+    "verifiedMatches": [
+      {"keyword": "enclomiphene", "qid": "Q27281081", "label": "enclomiphene citrate", "description": "chemical compound", "score": 0.83},
+      {"keyword": "enclomiphene citrate", "qid": "Q27281081", "label": "enclomiphene citrate", "description": "chemical compound", "score": 0.96},
+      {"keyword": "testosterone cypionate", "qid": "Q27108401", "label": "testosterone cypionate", "description": "chemical compound", "score": 0.93},
+      {"keyword": "full body scan", "qid": "Q5507963", "label": "full-body CT scan", "description": "medical scan of patient's entire body", "score": 0.84}
+    ],
+    "wrongSenseMatches": [
+      {"keyword": "low testosterone", "qid": "Q60114390", "label": "Low Testosterone", "description": "a specific 2010 scholarly article, not the general concept", "score": 0.67},
+      {"keyword": "testosterone levels", "qid": "Q113920497", "label": "Testosterone Levels and Cutibacterium", "description": "a specific clinical trial", "score": 0.61},
+      {"keyword": "testosterone levels in men", "qid": "Q54138868", "label": "Testosterone levels in men with COPD", "description": "a 1998 article about a specific unrelated condition", "score": 0.65},
+      {"keyword": "testosterone pellets", "qid": "Q63315522", "label": "Testosterone Pellets Plus Vitamin D/E...", "description": "a clinical trial about Peyronie's Disease, unrelated", "score": 0.59},
+      {"keyword": "ed treatment", "qid": "Q52315061", "label": "ED Treatment of Opioid Addiction", "description": "“ED” here means Emergency Department, not erectile dysfunction", "score": 0.61},
+      {"keyword": "vitamin b12 injection", "qid": "Q34485152", "label": "Vitamin B12 injections (1985 nursing journal article)", "description": "a specific decades-old article, not the general concept", "score": 0.84},
+      {"keyword": "men's health clinic", "qid": "Q90606869", "label": "Men's health clinics: a real need or a marketing strategy", "description": "a specific 2020 scholarly article, not the general concept", "score": 0.75},
+      {"keyword": "cypionate", "qid": "Q5401760", "label": "estradiol cypionate", "description": "wrong hormone ester — an estrogen compound, not testosterone", "score": 0.65}
+    ],
+    "noResultTerms": ["peptides for muscle growth", "what is the best injection for weight loss", "how does semaglutide work", "pt 141 peptide", "dexa scan near me", "trt therapy", "hgh peptides", "vitamin b12 foods", "b12 foods", "gameday men's health", "what is trt", "vitamin b12 dosage for adults", "testosterone levels by age chart", "are peptides steroids", "testosterone injections", "cialis vs viagra", "sermorelin before and after", "clomid for men", "muscle building peptides", "does minoxidil work", "best peptides for muscle growth", "how much b12 per day", "ozempic near me", "is 1 ml of testosterone a week enough", "trt side effects", "b12 shot", "tirzepatide near me", "b12 shots near me", "which glp-1 is best for weight loss", "testosterone levels by age", "foods that boost testosterone", "low testosterone symptoms in men", "best peptide for muscle growth", "b12 injections", "trt before and after", "sermorelin side effects", "foods with b12", "normal testosterone levels in men", "is testosterone a steroid", "viagra vs cialis", "enclomiphene side effects", "peptides near me", "how much b12 per day for a woman", "weight loss injections near me", "how much b12 should you take a day", "weight loss doctors near me", "weight loss near me", "trimix injection", "semaglutide near me", "finasteride vs minoxidil", "pt-141 peptide", "what foods have b12", "how much vitamin b12 should i take", "peptide therapy near me", "peptides bodybuilding", "best peptides", "weight loss clinics near me", "peptides weight loss", "normal testosterone levels", "normal testosterone levels in males ng/ml", "average testosterone levels by age", "peptides for muscle", "hgh for men", "signs of low testosterone in men", "what does testosterone do for men", "trt clinic near me", "what foods are high in b12", "does working out increase testosterone", "how to increase male libido", "sermorelin benefits", "peptide for muscle growth", "how to get testosterone", "growth hormone peptides", "men's health clinic near me", "enclomiphene for men", "weight loss doctor near me", "symptoms of low testosterone in men", "inbody scan near me", "men's health near me", "testosterone side effects"]
+  },
   "schemaInventory": [
     {"pageType":"Homepage","url":"gamedaymenshealth.com/","types":["MedicalOrganization","WebSite","WebPage"],"count":3,"note":"Clean brand identity graph"},
     {"pageType":"Location + service page (e.g. /abilene-tx/trt-clinic)","url":"/abilene-tx/trt-clinic","types":["MedicalOrganization","MedicalClinic","MedicalBusiness","LocalBusiness","Service"],"count":5,"note":"Best-built page type on the site — @id-linked org/location/service graph, medicalSpecialty, ReserveAction, priceRange"},
@@ -124,6 +148,7 @@
     {"title": "Fix internal linking so blog posts stop folding into /Blog", "detail": "31 of the top 100 keywords by volume (336,200 combined monthly searches) currently attribute to the generic blog index instead of the specific article — the single highest-leverage fix available, larger than any schema change."},
     {"title": "Add FAQPage and Review/AggregateRating schema", "detail": "Both exist as real content already (FAQ and testimonial sections) on location pages — zero-cost structured-data wins."},
     {"title": "Fix the Person.name and postalCode defects", "detail": "Both are template-level, one-time fixes that affect every physician and every one of the ~569 locations respectively."},
-    {"title": "Add GeoCoordinates and openingHoursSpecification to every LocalBusiness node", "detail": "Directly improves local-pack eligibility, which is already this site's best-performing channel (10 of its top local keywords rank in the top 5)."}
+    {"title": "Add GeoCoordinates and openingHoursSpecification to every LocalBusiness node", "detail": "Directly improves local-pack eligibility, which is already this site's best-performing channel (10 of its top local keywords rank in the top 5)."},
+    {"title": "Treat Wikidata linking as a manual, per-term decision — not an automated one", "detail": "Only 4 of the top 100 keywords resolve to a genuinely correct Wikidata entity; most medical-concept keywords either have no entity at all or collide with unrelated scholarly-article titles. Any sameAs/about linking into Wikidata needs a human read of the target entity first."}
   ]
 }

@@ -6,6 +6,7 @@ const LINKS = [
   { id: "gaps", label: "Text vs. Data" },
   { id: "competitors", label: "Competitors" },
   { id: "keywords", label: "Keywords" },
+  { id: "wikidata", label: "Wikidata" },
   { id: "recommendations", label: "Recommendations" },
 ];
 
