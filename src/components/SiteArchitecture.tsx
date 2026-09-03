@@ -8,7 +8,7 @@ export default function SiteArchitecture({ data }: { data: AuditPayload }) {
       <div className="container">
         <div className="section-head">
           <div className="eyebrow">Site architecture</div>
-          <h2 className="section-title">A programmatic local-SEO site, same shape as Stake's location pages</h2>
+          <h2 className="section-title">A programmatic local-SEO site, built one template per location</h2>
           <p className="section-sub">
             {fmtInt(a.mainSitemapUrls)} URLs in the main sitemap ({a.blogPosts} blog posts, {a.coreServicePages} core
             service pages) plus {a.locationSitemaps} separate per-location sitemaps, each listing ~{a.pagesPerLocationSample}{" "}

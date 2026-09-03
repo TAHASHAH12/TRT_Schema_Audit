@@ -4,7 +4,7 @@
     "auditDate": "September 3, 2026",
     "preparedFor": "Brie",
     "preparedBy": "WLDM",
-    "notes": "Preliminary base built same-day ahead of a client meeting. Schema sampled directly (site has no Cloudflare-style bot block, unlike Stake); Ahrefs pulled live via API."
+    "notes": "Preliminary base built same-day ahead of a client meeting. Schema sampled directly (no bot-blocking in the way); Ahrefs pulled live via API."
   },
   "siteArchitecture": {
     "mainSitemapUrls": 818,
@@ -105,7 +105,7 @@
         {"page": "/medical-team/dr-alan-armstrong", "field": "Physician.medicalSpecialty", "value": "[Endocrine, Urologic]"},
         {"page": "/medical-team/dr-robert-young", "field": "Physician.medicalSpecialty", "value": "[Endocrine, Urologic]"}
       ],
-      "impact": "Same pattern seen on Stake: a sitewide template value standing in for what should be page/entity-specific data."
+      "impact": "A sitewide template value standing in for what should be page/entity-specific data."
     }
   ],
   "textVsDataGaps": [
@@ -122,7 +122,7 @@
     {"title": "Fix or remove the leaked template origins", "detail": "robots.txt Disallow is not a fix — it only prevents new indexing. Either 404 the /regional-service/ and /clinic-service/ template paths or ship a real noindex, then let Google drop what's already blocked."},
     {"title": "Build out the pillar TRT service page", "detail": "/service/testosterone-replacement-therapy should carry at least as much schema as its own location subpages — Service, MedicalTherapy, and FAQPage at minimum."},
     {"title": "Fix internal linking so blog posts stop folding into /Blog", "detail": "31 of the top 100 keywords by volume (336,200 combined monthly searches) currently attribute to the generic blog index instead of the specific article — the single highest-leverage fix available, larger than any schema change."},
-    {"title": "Add FAQPage and Review/AggregateRating schema", "detail": "Both exist as real content already (FAQ and testimonial sections) on location pages — zero-cost structured-data wins, same class of gap as Offer was for Stake."},
+    {"title": "Add FAQPage and Review/AggregateRating schema", "detail": "Both exist as real content already (FAQ and testimonial sections) on location pages — zero-cost structured-data wins."},
     {"title": "Fix the Person.name and postalCode defects", "detail": "Both are template-level, one-time fixes that affect every physician and every one of the ~569 locations respectively."},
     {"title": "Add GeoCoordinates and openingHoursSpecification to every LocalBusiness node", "detail": "Directly improves local-pack eligibility, which is already this site's best-performing channel (10 of its top local keywords rank in the top 5)."}
   ]

@@ -14,7 +14,7 @@ export default function Hero({ data }: { data: AuditPayload }) {
           Gameday Men's Health runs TRT, peptide, weight-loss and men's-health clinics across{" "}
           <strong style={{ color: "var(--wldm-text-primary)" }}>{fmtInt(data.siteArchitecture.locationSitemaps)}</strong>{" "}
           US locations, each with its own service pages. This is a first pass: schema sampled directly from the live
-          site (no bot-blocking, unlike Stake), Ahrefs pulled live for the keyword picture, and two of its three
+          site (no bot-blocking in the way), Ahrefs pulled live for the keyword picture, and two of its three
           closest competitors scraped for a schema comparison. Built same-day ahead of tomorrow's client meeting —
           a base to work from, not a finished audit.
         </p>

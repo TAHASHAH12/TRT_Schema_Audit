@@ -14,8 +14,8 @@ export default function Defects({ data }: { data: AuditPayload }) {
           <div className="eyebrow">Confirmed defects</div>
           <h2 className="section-title">Three template-level bugs, each verified on two independent examples</h2>
           <p className="section-sub">
-            Same method as the Stake audit: find a defect, then reproduce it on a second, unrelated instance before
-            calling it systemic rather than a one-off.
+            Method: find a defect, then reproduce it on a second, unrelated instance before calling it systemic
+            rather than a one-off.
           </p>
         </div>
 

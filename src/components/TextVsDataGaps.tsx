@@ -8,7 +8,7 @@ export default function TextVsDataGaps({ data }: { data: AuditPayload }) {
           <div className="eyebrow">Text vs. data</div>
           <h2 className="section-title">Content that already exists, with no schema to match it</h2>
           <p className="section-sub">
-            Same gap class as Stake's Offer/FAQPage finding — the copy is already written, the markup just isn't there.
+            The copy is already written on these pages — the structured-data markup just isn't there yet.
           </p>
         </div>
 
