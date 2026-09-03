@@ -4,7 +4,7 @@
     "auditDate": "September 3, 2026",
     "preparedFor": "Brie",
     "preparedBy": "WLDM",
-    "notes": "Preliminary base built same-day ahead of a client meeting. Schema sampled directly (no bot-blocking in the way); Ahrefs pulled live via API."
+    "notes": "Preliminary base built same day ahead of a client meeting. Schema sampled directly, Ahrefs pulled live via API."
   },
   "siteArchitecture": {
     "mainSitemapUrls": 818,
@@ -16,9 +16,9 @@
     "estimatedTotalPages": 5370,
     "locationPageTypes": ["/{location}", "/{location}/trt-clinic", "/{location}/erectile-dysfunction-clinic", "/{location}/hair-loss-clinic", "/{location}/anti-aging-clinic", "/{location}/peptide-therapies-vitamin-injections", "/{location}/sports-injury-clinic", "/{location}/weight-loss-clinic"],
     "robotsIssue": {
-      "title": "Leaked template origins, held back only by robots.txt",
+      "title": "Leaked template origins, held back only by robots.txt.",
       "paths": ["/regional-service/trt-clinic", "/clinic-service/trt-clinic", "/regional-services/", "/regional-treatments/", "/regional-clinics/", "/clinic-services/", "/clinic-treatment/", "/redesign-clinic-pages/"],
-      "detail": "The site's own robots.txt documents this directly, dated Sept 1 2026: these origin/template URLs return HTTP 200, are self-canonical, carry no meta robots tag, and render literal unrendered tokens like {{state}} and {{location_slug}} in the body. robots.txt is the only thing keeping them out of the index — blocking a crawl path doesn't remove a URL that's already indexed, and if the block is ever lifted before the template bug is fixed, Google will crawl and index broken pages at scale across every location."
+      "detail": "The site's own robots.txt documents this directly, dated Sept 1 2026. These origin and template URLs return HTTP 200, are self canonical, carry no meta robots tag, and render literal unrendered tokens like {{state}} and {{location_slug}} in the body. robots.txt is the only thing keeping them out of the index. Blocking a crawl path does not remove a URL that is already indexed, and if the block is ever lifted before the template bug is fixed, Google will crawl and index broken pages at scale across every location."
     }
   },
   "ahrefs": {
@@ -32,7 +32,7 @@
       "count": 31,
       "combinedVolume": 336200,
       "trafficCaptured": 6112,
-      "note": "31 of the top 100 keywords by volume attribute to the generic /Blog index page instead of a specific article — not a real page ranking, a symptom of weak internal linking / canonicalization on those posts. Combined they represent 336,200 in monthly search volume."
+      "note": "31 of the top 100 keywords by volume attribute to the generic /Blog index page instead of a specific article. Not a real page ranking, a symptom of weak internal linking and canonicalization on those posts. Combined they represent 336,200 in monthly search volume."
     },
     "zeroTrafficTop30": {
       "count": 20,
@@ -70,7 +70,7 @@
     "verifiedCorrect": 4,
     "lowConfidence": 5,
     "noEntityFound": 80,
-    "method": "The top 100 Ahrefs keywords by volume were queried against Wikidata, then every candidate above the 0.55 semantic-similarity threshold was re-read by its description rather than trusted on score. Medical/pharma keywords hit a distinct failure mode here: Wikidata is heavily populated with scholarly-article metadata, so a query like \"low testosterone\" or \"testosterone levels\" doesn't resolve to a general concept — it resolves to one specific 2010 or 1998 journal article that happens to share the title, which is a wrong-type match even when the topic looks right.",
+    "method": "The top 100 Ahrefs keywords by volume were queried against Wikidata, then every candidate above the 0.55 semantic similarity threshold was re-read by its description rather than trusted on score. Medical and pharma keywords hit a distinct failure mode here. Wikidata is heavily populated with scholarly-article metadata, so a query like low testosterone or testosterone levels does not resolve to a general concept. It resolves to one specific 2010 or 1998 journal article that happens to share the title, a wrong-type match even when the topic looks right.",
     "verifiedMatches": [
       {"keyword": "enclomiphene", "qid": "Q27281081", "label": "enclomiphene citrate", "description": "chemical compound", "score": 0.83},
       {"keyword": "enclomiphene citrate", "qid": "Q27281081", "label": "enclomiphene citrate", "description": "chemical compound", "score": 0.96},
@@ -81,43 +81,43 @@
       {"keyword": "low testosterone", "qid": "Q60114390", "label": "Low Testosterone", "description": "a specific 2010 scholarly article, not the general concept", "score": 0.67},
       {"keyword": "testosterone levels", "qid": "Q113920497", "label": "Testosterone Levels and Cutibacterium", "description": "a specific clinical trial", "score": 0.61},
       {"keyword": "testosterone levels in men", "qid": "Q54138868", "label": "Testosterone levels in men with COPD", "description": "a 1998 article about a specific unrelated condition", "score": 0.65},
-      {"keyword": "testosterone pellets", "qid": "Q63315522", "label": "Testosterone Pellets Plus Vitamin D/E...", "description": "a clinical trial about Peyronie's Disease, unrelated", "score": 0.59},
-      {"keyword": "ed treatment", "qid": "Q52315061", "label": "ED Treatment of Opioid Addiction", "description": "“ED” here means Emergency Department, not erectile dysfunction", "score": 0.61},
-      {"keyword": "vitamin b12 injection", "qid": "Q34485152", "label": "Vitamin B12 injections (1985 nursing journal article)", "description": "a specific decades-old article, not the general concept", "score": 0.84},
+      {"keyword": "testosterone pellets", "qid": "Q63315522", "label": "Testosterone Pellets Plus Vitamin D and E", "description": "a clinical trial about Peyronie's Disease, unrelated", "score": 0.59},
+      {"keyword": "ed treatment", "qid": "Q52315061", "label": "ED Treatment of Opioid Addiction", "description": "ED here means Emergency Department, not erectile dysfunction", "score": 0.61},
+      {"keyword": "vitamin b12 injection", "qid": "Q34485152", "label": "Vitamin B12 injections, 1985 nursing journal article", "description": "a specific decades old article, not the general concept", "score": 0.84},
       {"keyword": "men's health clinic", "qid": "Q90606869", "label": "Men's health clinics: a real need or a marketing strategy", "description": "a specific 2020 scholarly article, not the general concept", "score": 0.75},
-      {"keyword": "cypionate", "qid": "Q5401760", "label": "estradiol cypionate", "description": "wrong hormone ester — an estrogen compound, not testosterone", "score": 0.65}
+      {"keyword": "cypionate", "qid": "Q5401760", "label": "estradiol cypionate", "description": "wrong hormone ester, an estrogen compound, not testosterone", "score": 0.65}
     ],
     "noResultTerms": ["peptides for muscle growth", "what is the best injection for weight loss", "how does semaglutide work", "pt 141 peptide", "dexa scan near me", "trt therapy", "hgh peptides", "vitamin b12 foods", "b12 foods", "gameday men's health", "what is trt", "vitamin b12 dosage for adults", "testosterone levels by age chart", "are peptides steroids", "testosterone injections", "cialis vs viagra", "sermorelin before and after", "clomid for men", "muscle building peptides", "does minoxidil work", "best peptides for muscle growth", "how much b12 per day", "ozempic near me", "is 1 ml of testosterone a week enough", "trt side effects", "b12 shot", "tirzepatide near me", "b12 shots near me", "which glp-1 is best for weight loss", "testosterone levels by age", "foods that boost testosterone", "low testosterone symptoms in men", "best peptide for muscle growth", "b12 injections", "trt before and after", "sermorelin side effects", "foods with b12", "normal testosterone levels in men", "is testosterone a steroid", "viagra vs cialis", "enclomiphene side effects", "peptides near me", "how much b12 per day for a woman", "weight loss injections near me", "how much b12 should you take a day", "weight loss doctors near me", "weight loss near me", "trimix injection", "semaglutide near me", "finasteride vs minoxidil", "pt-141 peptide", "what foods have b12", "how much vitamin b12 should i take", "peptide therapy near me", "peptides bodybuilding", "best peptides", "weight loss clinics near me", "peptides weight loss", "normal testosterone levels", "normal testosterone levels in males ng/ml", "average testosterone levels by age", "peptides for muscle", "hgh for men", "signs of low testosterone in men", "what does testosterone do for men", "trt clinic near me", "what foods are high in b12", "does working out increase testosterone", "how to increase male libido", "sermorelin benefits", "peptide for muscle growth", "how to get testosterone", "growth hormone peptides", "men's health clinic near me", "enclomiphene for men", "weight loss doctor near me", "symptoms of low testosterone in men", "inbody scan near me", "men's health near me", "testosterone side effects"]
   },
   "schemaInventory": [
-    {"pageType":"Homepage","url":"gamedaymenshealth.com/","types":["MedicalOrganization","WebSite","WebPage"],"count":3,"note":"Clean brand identity graph"},
-    {"pageType":"Location + service page (e.g. /abilene-tx/trt-clinic)","url":"/abilene-tx/trt-clinic","types":["MedicalOrganization","MedicalClinic","MedicalBusiness","LocalBusiness","Service"],"count":5,"note":"Best-built page type on the site — @id-linked org/location/service graph, medicalSpecialty, ReserveAction, priceRange"},
-    {"pageType":"Core topical service page (pillar)","url":"/service/testosterone-replacement-therapy","types":["MedicalOrganization"],"count":1,"note":"GAP: the single most important page for ‘testosterone replacement therapy’ has no Service, MedicalTherapy, or FAQPage markup — less schema than its own location subpages"},
-    {"pageType":"Physician bio","url":"/medical-team/dr-alan-armstrong","types":["MedicalOrganization","ProfilePage","BreadcrumbList","Person","Physician"],"count":5,"note":"Correct use of Physician type; see defect D1 on the name field"},
-    {"pageType":"Blog post","url":"/blog/a-mans-guide-to-trt-everything-you-need-to-know","types":["MedicalOrganization","WebPage","BreadcrumbList","BlogPosting"],"count":4,"note":"Generic BlogPosting regardless of medical content — no MedicalWebPage/reviewedBy"},
-    {"pageType":"Location directory (569 clinics)","url":"/location-directory","types":["MedicalOrganization"],"count":1,"note":"GAP: lists every clinic with zero ItemList/LocalBusiness markup for any of them"}
+    {"pageType":"Homepage","url":"gamedaymenshealth.com/","types":["MedicalOrganization","WebSite","WebPage"],"count":3,"note":"Clean brand identity graph."},
+    {"pageType":"Location + service page (e.g. /abilene-tx/trt-clinic)","url":"/abilene-tx/trt-clinic","types":["MedicalOrganization","MedicalClinic","MedicalBusiness","LocalBusiness","Service"],"count":5,"note":"Best-built page type on the site. An id-linked org, location and service graph, with medicalSpecialty, ReserveAction, priceRange."},
+    {"pageType":"Core topical service page (pillar)","url":"/service/testosterone-replacement-therapy","types":["MedicalOrganization"],"count":1,"note":"Gap. The single most important page for testosterone replacement therapy has no Service, MedicalTherapy, or FAQPage markup. Less schema than its own location subpages."},
+    {"pageType":"Physician bio","url":"/medical-team/dr-alan-armstrong","types":["MedicalOrganization","ProfilePage","BreadcrumbList","Person","Physician"],"count":5,"note":"Correct use of Physician type. See defect D1 on the name field."},
+    {"pageType":"Blog post","url":"/blog/a-mans-guide-to-trt-everything-you-need-to-know","types":["MedicalOrganization","WebPage","BreadcrumbList","BlogPosting"],"count":4,"note":"Generic BlogPosting regardless of medical content. No MedicalWebPage or reviewedBy."},
+    {"pageType":"Location directory (569 clinics)","url":"/location-directory","types":["MedicalOrganization"],"count":1,"note":"Gap. Lists every clinic with zero ItemList or LocalBusiness markup for any of them."}
   ],
   "defects": [
     {
       "id": "D1",
       "title": "Physician name field polluted with SEO title text",
       "severity": "high",
-      "description": "Every sampled physician's schema.org Person.name is the full page-title string, not the person's actual name — confirmed identically on 2 of 2 sampled doctors.",
+      "description": "Every sampled physician's schema.org Person.name is the full page title string, not the person's actual name. Confirmed identically on 2 of 2 sampled doctors.",
       "examples": [
-        {"page": "/medical-team/dr-alan-armstrong", "field": "Person.name", "value": "Dr. Alan Armstrong | Emergency Medicine Physician | Gameday Men’s Health"},
-        {"page": "/medical-team/dr-robert-young", "field": "Person.name", "value": "Dr. Robert Young | Emergency Medicine Physician | Gameday Men’s Health"}
+        {"page": "/medical-team/dr-alan-armstrong", "field": "Person.name", "value": "Dr. Alan Armstrong | Emergency Medicine Physician | Gameday Men's Health"},
+        {"page": "/medical-team/dr-robert-young", "field": "Person.name", "value": "Dr. Robert Young | Emergency Medicine Physician | Gameday Men's Health"}
       ],
-      "impact": "Breaks Person entity disambiguation and Knowledge Panel eligibility for every doctor on the site — the correct value is the name alone, e.g. “Dr. Alan Armstrong.”"
+      "impact": "Breaks Person entity disambiguation and Knowledge Panel eligibility for every doctor on the site. The correct value is the name alone, for example Dr. Alan Armstrong."
     },
     {
       "id": "D2",
       "title": "postalCode field holds three different kinds of value",
       "severity": "medium",
-      "description": "The same schema.org field, across different nodes and locations, holds a real ZIP code, a city name, or a US-region name interchangeably.",
+      "description": "The same schema.org field, across different nodes and locations, holds a real ZIP code, a city name, or a US region name interchangeably.",
       "examples": [
-        {"page": "/anchorage-ak/trt-clinic", "field": "LocalBusiness.areaServed.postalCode", "value": "99503 (correct)"},
-        {"page": "/abilene-tx/trt-clinic", "field": "LocalBusiness.areaServed.postalCode", "value": "Abilene (a city name, not a postal code)"},
-        {"page": "/anchorage-ak/trt-clinic", "field": "Service.areaServed.postalCode", "value": "Southcentral Alaska (a region name, not a postal code)"}
+        {"page": "/anchorage-ak/trt-clinic", "field": "LocalBusiness.areaServed.postalCode", "value": "99503, correct"},
+        {"page": "/abilene-tx/trt-clinic", "field": "LocalBusiness.areaServed.postalCode", "value": "Abilene, a city name, not a postal code"},
+        {"page": "/anchorage-ak/trt-clinic", "field": "Service.areaServed.postalCode", "value": "Southcentral Alaska, a region name, not a postal code"}
       ],
       "impact": "Breaks structured geographic targeting for anything that actually parses postalCode as a postal code."
     },
@@ -125,30 +125,30 @@
       "id": "D3",
       "title": "Identical medicalSpecialty tags regardless of the physician",
       "severity": "low",
-      "description": "Both sampled doctors — both titled ‘Emergency Medicine Physician’ — carry the exact same medicalSpecialty array (Endocrine, Urologic), suggesting a templated default rather than a per-physician value.",
+      "description": "Both sampled doctors, both titled Emergency Medicine Physician, carry the exact same medicalSpecialty array (Endocrine, Urologic), suggesting a templated default rather than a per-physician value.",
       "examples": [
-        {"page": "/medical-team/dr-alan-armstrong", "field": "Physician.medicalSpecialty", "value": "[Endocrine, Urologic]"},
-        {"page": "/medical-team/dr-robert-young", "field": "Physician.medicalSpecialty", "value": "[Endocrine, Urologic]"}
+        {"page": "/medical-team/dr-alan-armstrong", "field": "Physician.medicalSpecialty", "value": "Endocrine, Urologic"},
+        {"page": "/medical-team/dr-robert-young", "field": "Physician.medicalSpecialty", "value": "Endocrine, Urologic"}
       ],
-      "impact": "A sitewide template value standing in for what should be page/entity-specific data."
+      "impact": "A sitewide template value standing in for what should be page and entity specific data."
     }
   ],
   "textVsDataGaps": [
-    {"topic": "FAQ content", "evidence": "33 mentions of “FAQ” in the visible text of a single location/service page", "gapType": "no FAQPage schema found on any sampled page"},
-    {"topic": "Reviews & testimonials", "evidence": "35 mentions of “testimonial” and 6 of “reviews” on the same page", "gapType": "no Review or AggregateRating schema found anywhere sampled"},
-    {"topic": "Clinic geo-location", "evidence": "every LocalBusiness node has an address and a generic Google-Maps search link (hasMap)", "gapType": "no GeoCoordinates (lat/long) on any sampled location, and no openingHoursSpecification"}
+    {"topic": "FAQ content", "evidence": "33 mentions of FAQ in the visible text of a single location and service page", "gapType": "no FAQPage schema found on any sampled page"},
+    {"topic": "Reviews and testimonials", "evidence": "35 mentions of testimonial and 6 of reviews on the same page", "gapType": "no Review or AggregateRating schema found anywhere sampled"},
+    {"topic": "Clinic geo-location", "evidence": "every LocalBusiness node has an address and a generic Google Maps search link (hasMap)", "gapType": "no GeoCoordinates (lat/long) on any sampled location, and no openingHoursSpecification"}
   ],
   "competitors": [
-    {"domain": "honehealth.com", "domainRating": 66, "orgTraffic": 104502, "keywordsCommon": 978, "schemaTypes": ["MedicalOrganization", "WebSite"], "note": "Homepage only — zero JSON-LD found on their actual TRT service page (/mens/testosterone-replacement-therapy/). Gameday's location pages already carry more schema than this competitor's core page."},
-    {"domain": "klinic.com", "domainRating": 35, "orgTraffic": 41295, "keywordsCommon": 360, "schemaTypes": ["MedicalOrganization", "Organization", "FAQPage"], "note": "Smaller competitor, but has real FAQPage markup with Question/Answer pairs — exactly the gap Gameday has on far more FAQ content."}
+    {"domain": "honehealth.com", "domainRating": 66, "orgTraffic": 104502, "keywordsCommon": 978, "schemaTypes": ["MedicalOrganization", "WebSite"], "note": "Homepage only. Zero JSON-LD found on their actual TRT service page (/mens/testosterone-replacement-therapy/). Gameday's location pages already carry more schema than this competitor's core page."},
+    {"domain": "klinic.com", "domainRating": 35, "orgTraffic": 41295, "keywordsCommon": 360, "schemaTypes": ["MedicalOrganization", "Organization", "FAQPage"], "note": "Smaller competitor, but has real FAQPage markup with Question and Answer pairs. Exactly the gap Gameday has on far more FAQ content."}
   ],
   "recommendations": [
-    {"title": "Fix or remove the leaked template origins", "detail": "robots.txt Disallow is not a fix — it only prevents new indexing. Either 404 the /regional-service/ and /clinic-service/ template paths or ship a real noindex, then let Google drop what's already blocked."},
-    {"title": "Build out the pillar TRT service page", "detail": "/service/testosterone-replacement-therapy should carry at least as much schema as its own location subpages — Service, MedicalTherapy, and FAQPage at minimum."},
-    {"title": "Fix internal linking so blog posts stop folding into /Blog", "detail": "31 of the top 100 keywords by volume (336,200 combined monthly searches) currently attribute to the generic blog index instead of the specific article — the single highest-leverage fix available, larger than any schema change."},
-    {"title": "Add FAQPage and Review/AggregateRating schema", "detail": "Both exist as real content already (FAQ and testimonial sections) on location pages — zero-cost structured-data wins."},
-    {"title": "Fix the Person.name and postalCode defects", "detail": "Both are template-level, one-time fixes that affect every physician and every one of the ~569 locations respectively."},
-    {"title": "Add GeoCoordinates and openingHoursSpecification to every LocalBusiness node", "detail": "Directly improves local-pack eligibility, which is already this site's best-performing channel (10 of its top local keywords rank in the top 5)."},
-    {"title": "Treat Wikidata linking as a manual, per-term decision — not an automated one", "detail": "Only 4 of the top 100 keywords resolve to a genuinely correct Wikidata entity; most medical-concept keywords either have no entity at all or collide with unrelated scholarly-article titles. Any sameAs/about linking into Wikidata needs a human read of the target entity first."}
+    {"title": "Fix or remove the leaked template origins", "detail": "robots.txt Disallow is not a fix. It only prevents new indexing. Either 404 the /regional-service/ and /clinic-service/ template paths or ship a real noindex, then let Google drop what is already blocked."},
+    {"title": "Build out the pillar TRT service page", "detail": "/service/testosterone-replacement-therapy should carry at least as much schema as its own location subpages. Service, MedicalTherapy, and FAQPage at minimum."},
+    {"title": "Fix internal linking so blog posts stop folding into /Blog", "detail": "31 of the top 100 keywords by volume, 336,200 combined monthly searches, currently attribute to the generic blog index instead of the specific article. The single biggest fix available, larger than any schema change."},
+    {"title": "Add FAQPage and Review and AggregateRating schema", "detail": "Both exist as real content already, FAQ and testimonial sections, on location pages. Zero cost structured data wins."},
+    {"title": "Fix the Person.name and postalCode defects", "detail": "Both are template level, one time fixes that affect every physician and every one of the 569 locations respectively."},
+    {"title": "Add GeoCoordinates and openingHoursSpecification to every LocalBusiness node", "detail": "Directly improves local pack eligibility, already this site's best performing channel. 10 of its top local keywords rank in the top 5."},
+    {"title": "Treat Wikidata linking as a manual, per term decision", "detail": "Only 4 of the top 100 keywords resolve to a genuinely correct Wikidata entity. Most medical concept keywords either have no entity at all or collide with unrelated scholarly article titles. Any sameAs or about linking into Wikidata needs a human read of the target entity first."}
   ]
 }

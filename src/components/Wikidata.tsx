@@ -1,156 +1,70 @@
 import type { AuditPayload } from "../types";
+import ScoreCard from "./ScoreCard";
 import { fmtInt } from "../utils/format";
 
 export default function Wikidata({ data }: { data: AuditPayload }) {
   const w = data.wikidata;
+  const wrongCount = w.scoredAboveThreshold - w.verifiedCorrect;
+
   return (
     <section id="wikidata" className="section">
       <div className="container">
-        <div className="section-head">
-          <div className="eyebrow">Wikidata semantic keyword mapping</div>
-          <h2 className="section-title">Which of the top 100 keywords have a real knowledge-graph entity</h2>
-          <p className="section-sub">{w.method}</p>
+        <div className="eyebrow">07 &middot; Wikidata</div>
+        <h2>Which of the top 100 keywords have a real knowledge graph entity.</h2>
+        <p className="lead" style={{ marginBottom: 22 }}>{w.method}</p>
+
+        <div className="scorecards" style={{ marginBottom: 26 }}>
+          <ScoreCard value={fmtInt(w.totalKeywords)} label="Keywords tested" />
+          <ScoreCard value={fmtInt(w.scoredAboveThreshold)} label="Score clears 0.55" />
+          <ScoreCard value={fmtInt(w.verifiedCorrect)} label="Verified correct on inspection" />
+          <ScoreCard value={fmtInt(w.noEntityFound)} label="No Wikidata entity at all" warn />
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
-            gap: 16,
-            marginBottom: 28,
-          }}
-        >
-          <div className="card" style={{ padding: "22px 22px" }}>
-            <div style={{ fontSize: 12.5, color: "var(--wldm-text-muted)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-              Keywords tested
-            </div>
-            <div style={{ fontFamily: "var(--font-display)", fontSize: 30, fontWeight: 700, marginTop: 8 }}>
-              {fmtInt(w.totalKeywords)}
-            </div>
+        <figure className="card" style={{ marginBottom: 24 }}>
+          <figcaption className="eyebrow" style={{ marginBottom: 14 }}>Figure 4. All 100 keywords, by outcome</figcaption>
+          <div className="comp-bar">
+            <div title={`Verified correct: ${w.verifiedCorrect}`} style={{ width: `${(w.verifiedCorrect / w.totalKeywords) * 100}%`, background: "var(--ink)" }} />
+            <div title={`Wrong entity: ${wrongCount}`} style={{ width: `${(wrongCount / w.totalKeywords) * 100}%`, background: "var(--warn)" }} />
+            <div title={`Low confidence: ${w.lowConfidence}`} style={{ width: `${(w.lowConfidence / w.totalKeywords) * 100}%`, background: "var(--bl)" }} />
+            <div title={`No entity found: ${w.noEntityFound}`} style={{ width: `${(w.noEntityFound / w.totalKeywords) * 100}%`, background: "var(--tp)" }} />
           </div>
-          <div className="card" style={{ padding: "22px 22px" }}>
-            <div style={{ fontSize: 12.5, color: "var(--wldm-text-muted)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-              Score clears 0.55 threshold
-            </div>
-            <div style={{ fontFamily: "var(--font-display)", fontSize: 30, fontWeight: 700, marginTop: 8 }}>
-              {fmtInt(w.scoredAboveThreshold)}
-            </div>
+          <div className="comp-legend">
+            <div className="comp-legend-item"><span className="comp-swatch" style={{ background: "var(--ink)" }} />Verified correct, {w.verifiedCorrect}</div>
+            <div className="comp-legend-item"><span className="comp-swatch" style={{ background: "var(--warn)" }} />Wrong entity, {wrongCount}</div>
+            <div className="comp-legend-item"><span className="comp-swatch" style={{ background: "var(--bl)" }} />Low confidence, {w.lowConfidence}</div>
+            <div className="comp-legend-item"><span className="comp-swatch" style={{ background: "var(--tp)" }} />No entity found, {w.noEntityFound}</div>
           </div>
-          <div className="card" style={{ padding: "22px 22px" }}>
-            <div style={{ fontSize: 12.5, color: "var(--wldm-text-muted)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-              Verified correct on inspection
-            </div>
-            <div style={{ fontFamily: "var(--font-display)", fontSize: 30, fontWeight: 700, marginTop: 8, color: "var(--wldm-accent-text)" }}>
-              {fmtInt(w.verifiedCorrect)}
-            </div>
-          </div>
-          <div className="card" style={{ padding: "22px 22px" }}>
-            <div style={{ fontSize: 12.5, color: "var(--wldm-text-muted)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-              No Wikidata entity at all
-            </div>
-            <div style={{ fontFamily: "var(--font-display)", fontSize: 30, fontWeight: 700, marginTop: 8, color: "var(--wldm-pink-text)" }}>
-              {fmtInt(w.noEntityFound)}
-            </div>
-          </div>
-        </div>
+        </figure>
 
-        <div className="card" style={{ padding: "20px 24px", marginBottom: 28 }}>
-          <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 14, color: "var(--wldm-text-secondary)" }}>
-            All {w.totalKeywords} keywords, by outcome
-          </div>
-          <div style={{ display: "flex", height: 28, borderRadius: 6, overflow: "hidden", border: "1px solid var(--wldm-border)" }}>
-            <div
-              title={`Verified correct: ${w.verifiedCorrect}`}
-              style={{
-                width: `${(w.verifiedCorrect / w.totalKeywords) * 100}%`,
-                background: "var(--wldm-accent-text)",
-                minWidth: w.verifiedCorrect ? 2 : 0,
-              }}
-            />
-            <div
-              title={`Above threshold, wrong entity: ${w.scoredAboveThreshold - w.verifiedCorrect}`}
-              style={{
-                width: `${((w.scoredAboveThreshold - w.verifiedCorrect) / w.totalKeywords) * 100}%`,
-                background: "var(--wldm-pink-text)",
-                minWidth: 2,
-              }}
-            />
-            <div
-              title={`Below threshold, low confidence: ${w.lowConfidence}`}
-              style={{
-                width: `${(w.lowConfidence / w.totalKeywords) * 100}%`,
-                background: "var(--wldm-border-strong)",
-                minWidth: 2,
-              }}
-            />
-            <div
-              title={`No Wikidata entity: ${w.noEntityFound}`}
-              style={{
-                width: `${(w.noEntityFound / w.totalKeywords) * 100}%`,
-                background: "var(--wldm-text-muted)",
-                minWidth: 2,
-              }}
-            />
-          </div>
-          <div className="legend" style={{ marginTop: 14 }}>
-            <div className="legend-item">
-              <span className="legend-swatch" style={{ background: "var(--wldm-accent-text)" }} />
-              Verified correct — {w.verifiedCorrect}
-            </div>
-            <div className="legend-item">
-              <span className="legend-swatch" style={{ background: "var(--wldm-pink-text)" }} />
-              Wrong entity — {w.scoredAboveThreshold - w.verifiedCorrect}
-            </div>
-            <div className="legend-item">
-              <span className="legend-swatch" style={{ background: "var(--wldm-border-strong)" }} />
-              Low confidence — {w.lowConfidence}
-            </div>
-            <div className="legend-item">
-              <span className="legend-swatch" style={{ background: "var(--wldm-text-muted)" }} />
-              No entity found — {w.noEntityFound}
-            </div>
-          </div>
-        </div>
-
-        <div
-          className="card"
-          style={{ padding: "22px 26px", marginBottom: 28, borderColor: "var(--wldm-pink)", borderWidth: 1.5, background: "rgba(212, 89, 135, 0.06)" }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-            <span style={{ width: 9, height: 9, borderRadius: "50%", background: "var(--wldm-pink)", flexShrink: 0 }} />
-            <strong style={{ fontFamily: "var(--font-display)", fontSize: 13, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--wldm-pink-text)" }}>
-              A threshold score is not a sense check
-            </strong>
-          </div>
-          <p style={{ fontSize: 14.5, color: "var(--wldm-text-secondary)" }}>
-            Clearing 0.55 semantic similarity does not mean the match is right — the blend still weights Wikidata's
-            own frequently-wrong rank position at 40%. Every match above threshold was re-read by its description
-            before being counted as verified.
+        <div className="callout" style={{ marginBottom: 24 }}>
+          <h3>A threshold score is not a sense check.</h3>
+          <p className="lead" style={{ marginTop: 8 }}>
+            Clearing 0.55 semantic similarity does not mean the match is right. The blend still weights
+            Wikidata&rsquo;s own frequently wrong rank position at 40 percent. Every match above threshold was
+            re-read by its description before being counted as verified.
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }} className="responsive-grid">
+        <div className="grid2">
           <div>
-            <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 10, color: "var(--wldm-text-secondary)" }}>
-              Verified correct
-            </div>
-            <div className="card" style={{ padding: 4, maxHeight: 420, overflowY: "auto" }}>
-              <table className="data-table">
+            <h4>Verified correct</h4>
+            <div className="tbl-wrap card" style={{ padding: 4, maxHeight: 420, overflowY: "auto" }}>
+              <table>
                 <thead>
                   <tr>
-                    <th style={{ textAlign: "left" }}>Keyword</th>
-                    <th style={{ textAlign: "left" }}>QID</th>
-                    <th style={{ textAlign: "left" }}>Label</th>
+                    <th>Keyword</th>
+                    <th>QID</th>
+                    <th>Label</th>
                     <th>Score</th>
                   </tr>
                 </thead>
                 <tbody>
                   {w.verifiedMatches.map((m) => (
                     <tr key={m.keyword}>
-                      <td style={{ textAlign: "left" }}>{m.keyword}</td>
-                      <td style={{ textAlign: "left", fontFamily: "monospace", fontSize: 11.5 }}>{m.qid}</td>
-                      <td style={{ textAlign: "left" }}>{m.label}</td>
-                      <td>{m.score.toFixed(2)}</td>
+                      <td>{m.keyword}</td>
+                      <td className="num">{m.qid}</td>
+                      <td>{m.label}</td>
+                      <td className="num">{m.score.toFixed(2)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -159,27 +73,25 @@ export default function Wikidata({ data }: { data: AuditPayload }) {
           </div>
 
           <div>
-            <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 10, color: "var(--wldm-pink-text)" }}>
-              Above threshold, still wrong entity
-            </div>
-            <div className="card" style={{ padding: 4, maxHeight: 420, overflowY: "auto" }}>
-              <table className="data-table">
+            <h4 style={{ color: "var(--warn)" }}>Above threshold, still wrong entity</h4>
+            <div className="tbl-wrap card" style={{ padding: 4, maxHeight: 420, overflowY: "auto" }}>
+              <table>
                 <thead>
                   <tr>
-                    <th style={{ textAlign: "left" }}>Keyword</th>
-                    <th style={{ textAlign: "left" }}>Resolves to</th>
+                    <th>Keyword</th>
+                    <th>Resolves to</th>
                     <th>Score</th>
                   </tr>
                 </thead>
                 <tbody>
                   {w.wrongSenseMatches.map((m) => (
                     <tr key={m.keyword}>
-                      <td style={{ textAlign: "left" }}>{m.keyword}</td>
-                      <td style={{ textAlign: "left" }}>
-                        <span style={{ color: "var(--wldm-text-secondary)" }}>{m.label}</span>
-                        <span style={{ color: "var(--wldm-text-muted)", fontSize: 11.5 }}> — {m.description}</span>
+                      <td>{m.keyword}</td>
+                      <td>
+                        <span style={{ color: "var(--ink-soft)" }}>{m.label}</span>
+                        <span style={{ color: "var(--ink-mute)", fontSize: 11.5 }}>. {m.description}</span>
                       </td>
-                      <td>{m.score.toFixed(2)}</td>
+                      <td className="num">{m.score.toFixed(2)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -188,26 +100,11 @@ export default function Wikidata({ data }: { data: AuditPayload }) {
           </div>
         </div>
 
-        <div style={{ marginTop: 28 }}>
-          <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 10, color: "var(--wldm-text-secondary)" }}>
-            No Wikidata entity found ({w.noResultTerms.length} of {w.totalKeywords})
-          </div>
+        <div style={{ marginTop: 26 }}>
+          <h4>No Wikidata entity found, {w.noResultTerms.length} of {w.totalKeywords}</h4>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
             {w.noResultTerms.map((t) => (
-              <span
-                key={t}
-                style={{
-                  fontFamily: "monospace",
-                  fontSize: 12,
-                  padding: "5px 10px",
-                  background: "var(--wldm-bg-raised)",
-                  border: "1px solid var(--wldm-border)",
-                  borderRadius: 4,
-                  color: "var(--wldm-text-secondary)",
-                }}
-              >
-                {t}
-              </span>
+              <span key={t} className="tag" style={{ margin: 0 }}>{t}</span>
             ))}
           </div>
         </div>

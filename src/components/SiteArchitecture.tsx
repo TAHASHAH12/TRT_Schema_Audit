@@ -6,58 +6,47 @@ export default function SiteArchitecture({ data }: { data: AuditPayload }) {
   return (
     <section id="architecture" className="section">
       <div className="container">
-        <div className="section-head">
-          <div className="eyebrow">Site architecture</div>
-          <h2 className="section-title">A programmatic local-SEO site, built one template per location</h2>
-          <p className="section-sub">
-            {fmtInt(a.mainSitemapUrls)} URLs in the main sitemap ({a.blogPosts} blog posts, {a.coreServicePages} core
-            service pages) plus {a.locationSitemaps} separate per-location sitemaps, each listing ~{a.pagesPerLocationSample}{" "}
-            pages: the location's homepage and one clinic page per service line.
-          </p>
-        </div>
+        <div className="eyebrow">01 &middot; Site architecture</div>
+        <h2>A programmatic local SEO site, built one template per location.</h2>
+        <p className="lead" style={{ marginBottom: 28 }}>
+          {fmtInt(a.mainSitemapUrls)} URLs in the main sitemap, {a.blogPosts} blog posts and {a.coreServicePages} core
+          service pages, plus {a.locationSitemaps} separate per location sitemaps, each listing about{" "}
+          {a.pagesPerLocationSample} pages: the location&rsquo;s homepage and one clinic page per service line.
+        </p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 28 }} className="responsive-grid">
-          <div className="card" style={{ padding: 22 }}>
-            <div style={{ fontSize: 13, color: "var(--wldm-text-muted)", marginBottom: 10 }}>Per-location URL pattern</div>
+        <div className="grid2" style={{ marginBottom: 26 }}>
+          <div className="card">
+            <h4>Per location URL pattern</h4>
             <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
               {a.locationPageTypes.map((p) => (
-                <code key={p} style={{ fontSize: 12.5, color: "var(--wldm-text-secondary)", fontFamily: "monospace" }}>
+                <code key={p} style={{ fontFamily: "var(--mono)", fontSize: 12.5, color: "var(--ink-soft)" }}>
                   {p}
                 </code>
               ))}
             </div>
           </div>
-          <div className="card" style={{ padding: 22, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
-            <div style={{ fontFamily: "var(--font-display)", fontSize: 40, fontWeight: 700 }}>{fmtInt(a.locationSitemaps)}</div>
-            <div style={{ fontSize: 13, color: "var(--wldm-text-secondary)", marginTop: 6 }}>
-              live clinic locations, × ~{a.pagesPerLocationSample} pages ≈ {fmtInt(a.estimatedLocationPages)} location pages
-            </div>
+          <div className="card" style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
+            <div style={{ fontFamily: "var(--head)", fontWeight: 600, fontSize: 40 }}>{fmtInt(a.locationSitemaps)}</div>
+            <p style={{ fontSize: 13, color: "var(--ink-soft)", marginTop: 6 }}>
+              live clinic locations, about {a.pagesPerLocationSample} pages each, roughly {fmtInt(a.estimatedLocationPages)} location pages total
+            </p>
           </div>
         </div>
 
-        <div
-          className="card"
-          style={{ padding: "22px 26px", borderColor: "var(--wldm-pink)", borderWidth: 1.5, background: "rgba(212, 89, 135, 0.06)" }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-            <span style={{ width: 9, height: 9, borderRadius: "50%", background: "var(--wldm-pink)", flexShrink: 0 }} />
-            <strong style={{ fontFamily: "var(--font-display)", fontSize: 13, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--wldm-pink-text)" }}>
-              {a.robotsIssue.title}
-            </strong>
-          </div>
-          <p style={{ fontSize: 14.5, color: "var(--wldm-text-secondary)", marginBottom: 14 }}>{a.robotsIssue.detail}</p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+        <div className="callout">
+          <h3>{a.robotsIssue.title}</h3>
+          <p className="lead" style={{ marginTop: 10 }}>{a.robotsIssue.detail}</p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
             {a.robotsIssue.paths.map((p) => (
               <code
                 key={p}
                 style={{
+                  fontFamily: "var(--mono)",
                   fontSize: 11.5,
-                  fontFamily: "monospace",
-                  background: "var(--wldm-bg-raised)",
-                  border: "1px solid var(--wldm-border)",
+                  background: "rgba(255,255,255,.08)",
                   borderRadius: 4,
                   padding: "3px 8px",
-                  color: "var(--wldm-text-secondary)",
+                  color: "#cfcabb",
                 }}
               >
                 {p}
