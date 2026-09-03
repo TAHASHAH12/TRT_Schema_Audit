@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "domain": "gamedaymenshealth.com",
+    "auditDate": "September 3, 2026",
+    "preparedFor": "Brie",
+    "preparedBy": "WLDM",
+    "notes": "Preliminary base built same-day ahead of a client meeting. Schema sampled directly (site has no Cloudflare-style bot block, unlike Stake); Ahrefs pulled live via API."
+  },
+  "siteArchitecture": {
+    "mainSitemapUrls": 818,
+    "blogPosts": 209,
+    "coreServicePages": 36,
+    "locationSitemaps": 569,
+    "pagesPerLocationSample": 8,
+    "estimatedLocationPages": 4552,
+    "estimatedTotalPages": 5370,
+    "locationPageTypes": ["/{location}", "/{location}/trt-clinic", "/{location}/erectile-dysfunction-clinic", "/{location}/hair-loss-clinic", "/{location}/anti-aging-clinic", "/{location}/peptide-therapies-vitamin-injections", "/{location}/sports-injury-clinic", "/{location}/weight-loss-clinic"],
+    "robotsIssue": {
+      "title": "Leaked template origins, held back only by robots.txt",
+      "paths": ["/regional-service/trt-clinic", "/clinic-service/trt-clinic", "/regional-services/", "/regional-treatments/", "/regional-clinics/", "/clinic-services/", "/clinic-treatment/", "/redesign-clinic-pages/"],
+      "detail": "The site's own robots.txt documents this directly, dated Sept 1 2026: these origin/template URLs return HTTP 200, are self-canonical, carry no meta robots tag, and render literal unrendered tokens like {{state}} and {{location_slug}} in the body. robots.txt is the only thing keeping them out of the index — blocking a crawl path doesn't remove a URL that's already indexed, and if the block is ever lifted before the template bug is fixed, Google will crawl and index broken pages at scale across every location."
+    }
+  },
+  "ahrefs": {
+    "orgKeywords": 8652,
+    "orgKeywordsTop3": 3220,
+    "orgTraffic": 106043,
+    "orgTrafficValueUsd": 219614,
+    "paidKeywords": 110,
+    "sampleSize": 100,
+    "genericBlogAttribution": {
+      "count": 31,
+      "combinedVolume": 336200,
+      "trafficCaptured": 6112,
+      "note": "31 of the top 100 keywords by volume attribute to the generic /Blog index page instead of a specific article — not a real page ranking, a symptom of weak internal linking / canonicalization on those posts. Combined they represent 336,200 in monthly search volume."
+    },
+    "zeroTrafficTop30": {
+      "count": 20,
+      "combinedVolume": 330600
+    },
+    "casingAnomalies": ["https://gamedaymenshealth.com/Blog", "https://gamedaymenshealth.com/West"],
+    "topKeywords": [
+      {"keyword":"enclomiphene","volume":101000,"position":13,"url":"/blog/enclomiphene-right-choice","traffic":0,"kd":18,"flag":"low-traffic-for-position"},
+      {"keyword":"trt","volume":96000,"position":9,"url":"/blog/what-is-trt-a-complete-beginners-guide","traffic":579,"kd":69,"flag":null},
+      {"keyword":"peptides for muscle growth","volume":49000,"position":9,"url":"/blog/best-peptides-for-muscle-maintenance","traffic":1525,"kd":20,"flag":null},
+      {"keyword":"hgh","volume":33000,"position":12,"url":"/Blog","traffic":0,"kd":97,"flag":"generic-blog"},
+      {"keyword":"testosterone cypionate","volume":31000,"position":9,"url":"/blog/testosterone-cypionate-injection","traffic":293,"kd":43,"flag":null},
+      {"keyword":"low testosterone","volume":30000,"position":29,"url":"/blog/what-is-low-testosterone","traffic":0,"kd":66,"flag":null},
+      {"keyword":"trt therapy","volume":21000,"position":12,"url":"/blog/what-is-trt-a-complete-beginners-guide","traffic":331,"kd":71,"flag":null},
+      {"keyword":"what is trt","volume":18000,"position":9,"url":"/blog/what-is-trt-a-complete-beginners-guide","traffic":281,"kd":68,"flag":null},
+      {"keyword":"gameday men's health","volume":18000,"position":2,"url":"/west-wichita-ks","traffic":14301,"kd":41,"flag":null},
+      {"keyword":"hgh peptides","volume":19000,"position":4,"url":"/Blog","traffic":1738,"kd":99,"flag":"generic-blog"}
+    ],
+    "localWinsTop5": [
+      {"keyword":"gameday men's health","position":2,"volume":18000},
+      {"keyword":"men's health near me","position":2,"volume":3800},
+      {"keyword":"men's health clinic near me","position":2,"volume":3900},
+      {"keyword":"men's health clinic","position":2,"volume":4500},
+      {"keyword":"trt clinic near me","position":3,"volume":4500},
+      {"keyword":"peptides near me","position":3,"volume":7500},
+      {"keyword":"tirzepatide near me","position":4,"volume":11000},
+      {"keyword":"b12 shots near me","position":4,"volume":10000},
+      {"keyword":"peptide therapy near me","position":5,"volume":5900},
+      {"keyword":"inbody scan near me","position":5,"volume":3800}
+    ]
+  },
+  "schemaInventory": [
+    {"pageType":"Homepage","url":"gamedaymenshealth.com/","types":["MedicalOrganization","WebSite","WebPage"],"count":3,"note":"Clean brand identity graph"},
+    {"pageType":"Location + service page (e.g. /abilene-tx/trt-clinic)","url":"/abilene-tx/trt-clinic","types":["MedicalOrganization","MedicalClinic","MedicalBusiness","LocalBusiness","Service"],"count":5,"note":"Best-built page type on the site — @id-linked org/location/service graph, medicalSpecialty, ReserveAction, priceRange"},
+    {"pageType":"Core topical service page (pillar)","url":"/service/testosterone-replacement-therapy","types":["MedicalOrganization"],"count":1,"note":"GAP: the single most important page for ‘testosterone replacement therapy’ has no Service, MedicalTherapy, or FAQPage markup — less schema than its own location subpages"},
+    {"pageType":"Physician bio","url":"/medical-team/dr-alan-armstrong","types":["MedicalOrganization","ProfilePage","BreadcrumbList","Person","Physician"],"count":5,"note":"Correct use of Physician type; see defect D1 on the name field"},
+    {"pageType":"Blog post","url":"/blog/a-mans-guide-to-trt-everything-you-need-to-know","types":["MedicalOrganization","WebPage","BreadcrumbList","BlogPosting"],"count":4,"note":"Generic BlogPosting regardless of medical content — no MedicalWebPage/reviewedBy"},
+    {"pageType":"Location directory (569 clinics)","url":"/location-directory","types":["MedicalOrganization"],"count":1,"note":"GAP: lists every clinic with zero ItemList/LocalBusiness markup for any of them"}
+  ],
+  "defects": [
+    {
+      "id": "D1",
+      "title": "Physician name field polluted with SEO title text",
+      "severity": "high",
+      "description": "Every sampled physician's schema.org Person.name is the full page-title string, not the person's actual name — confirmed identically on 2 of 2 sampled doctors.",
+      "examples": [
+        {"page": "/medical-team/dr-alan-armstrong", "field": "Person.name", "value": "Dr. Alan Armstrong | Emergency Medicine Physician | Gameday Men’s Health"},
+        {"page": "/medical-team/dr-robert-young", "field": "Person.name", "value": "Dr. Robert Young | Emergency Medicine Physician | Gameday Men’s Health"}
+      ],
+      "impact": "Breaks Person entity disambiguation and Knowledge Panel eligibility for every doctor on the site — the correct value is the name alone, e.g. “Dr. Alan Armstrong.”"
+    },
+    {
+      "id": "D2",
+      "title": "postalCode field holds three different kinds of value",
+      "severity": "medium",
+      "description": "The same schema.org field, across different nodes and locations, holds a real ZIP code, a city name, or a US-region name interchangeably.",
+      "examples": [
+        {"page": "/anchorage-ak/trt-clinic", "field": "LocalBusiness.areaServed.postalCode", "value": "99503 (correct)"},
+        {"page": "/abilene-tx/trt-clinic", "field": "LocalBusiness.areaServed.postalCode", "value": "Abilene (a city name, not a postal code)"},
+        {"page": "/anchorage-ak/trt-clinic", "field": "Service.areaServed.postalCode", "value": "Southcentral Alaska (a region name, not a postal code)"}
+      ],
+      "impact": "Breaks structured geographic targeting for anything that actually parses postalCode as a postal code."
+    },
+    {
+      "id": "D3",
+      "title": "Identical medicalSpecialty tags regardless of the physician",
+      "severity": "low",
+      "description": "Both sampled doctors — both titled ‘Emergency Medicine Physician’ — carry the exact same medicalSpecialty array (Endocrine, Urologic), suggesting a templated default rather than a per-physician value.",
+      "examples": [
+        {"page": "/medical-team/dr-alan-armstrong", "field": "Physician.medicalSpecialty", "value": "[Endocrine, Urologic]"},
+        {"page": "/medical-team/dr-robert-young", "field": "Physician.medicalSpecialty", "value": "[Endocrine, Urologic]"}
+      ],
+      "impact": "Same pattern seen on Stake: a sitewide template value standing in for what should be page/entity-specific data."
+    }
+  ],
+  "textVsDataGaps": [
+    {"topic": "FAQ content", "evidence": "33 mentions of “FAQ” in the visible text of a single location/service page", "gapType": "no FAQPage schema found on any sampled page"},
+    {"topic": "Reviews & testimonials", "evidence": "35 mentions of “testimonial” and 6 of “reviews” on the same page", "gapType": "no Review or AggregateRating schema found anywhere sampled"},
+    {"topic": "Clinic geo-location", "evidence": "every LocalBusiness node has an address and a generic Google-Maps search link (hasMap)", "gapType": "no GeoCoordinates (lat/long) on any sampled location, and no openingHoursSpecification"}
+  ],
+  "competitors": [
+    {"domain": "hims.com", "domainRating": 79, "orgTraffic": 868007, "keywordsCommon": 1511, "schemaTypes": null, "note": "Blocked by bot protection — could not be scraped directly or via DataForSEO's crawler (403 on both). The biggest competitor is also the hardest to reverse-engineer."},
+    {"domain": "honehealth.com", "domainRating": 66, "orgTraffic": 104502, "keywordsCommon": 978, "schemaTypes": ["MedicalOrganization", "WebSite"], "note": "Homepage only — zero JSON-LD found on their actual TRT service page (/mens/testosterone-replacement-therapy/). Gameday's location pages already carry more schema than this competitor's core page."},
+    {"domain": "klinic.com", "domainRating": 35, "orgTraffic": 41295, "keywordsCommon": 360, "schemaTypes": ["MedicalOrganization", "Organization", "FAQPage"], "note": "Smaller competitor, but has real FAQPage markup with Question/Answer pairs — exactly the gap Gameday has on far more FAQ content."}
+  ],
+  "recommendations": [
+    {"title": "Fix or remove the leaked template origins", "detail": "robots.txt Disallow is not a fix — it only prevents new indexing. Either 404 the /regional-service/ and /clinic-service/ template paths or ship a real noindex, then let Google drop what's already blocked."},
+    {"title": "Build out the pillar TRT service page", "detail": "/service/testosterone-replacement-therapy should carry at least as much schema as its own location subpages — Service, MedicalTherapy, and FAQPage at minimum."},
+    {"title": "Fix internal linking so blog posts stop folding into /Blog", "detail": "31 of the top 100 keywords by volume (336,200 combined monthly searches) currently attribute to the generic blog index instead of the specific article — the single highest-leverage fix available, larger than any schema change."},
+    {"title": "Add FAQPage and Review/AggregateRating schema", "detail": "Both exist as real content already (FAQ and testimonial sections) on location pages — zero-cost structured-data wins, same class of gap as Offer was for Stake."},
+    {"title": "Fix the Person.name and postalCode defects", "detail": "Both are template-level, one-time fixes that affect every physician and every one of the ~569 locations respectively."},
+    {"title": "Add GeoCoordinates and openingHoursSpecification to every LocalBusiness node", "detail": "Directly improves local-pack eligibility, which is already this site's best-performing channel (10 of its top local keywords rank in the top 5)."}
+  ]
+}
