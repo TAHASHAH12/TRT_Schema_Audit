@@ -6,7 +6,6 @@ export default function Recommendations({ data }: { data: AuditPayload }) {
       <div className="container">
         <div className="section-head">
           <div className="eyebrow">Recommendations</div>
-          <h2 className="section-title">In priority order for tomorrow's conversation</h2>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
