@@ -23,7 +23,7 @@ export default function TextVsDataGaps({ data }: { data: AuditPayload }) {
               <div
                 style={{
                   fontSize: 13,
-                  color: "var(--wldm-pink)",
+                  color: "var(--wldm-pink-text)",
                   borderTop: "1px dashed var(--wldm-border)",
                   paddingTop: 12,
                 }}

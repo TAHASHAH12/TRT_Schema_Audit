@@ -41,7 +41,7 @@ export default function SiteArchitecture({ data }: { data: AuditPayload }) {
         >
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
             <span style={{ width: 9, height: 9, borderRadius: "50%", background: "var(--wldm-pink)", flexShrink: 0 }} />
-            <strong style={{ fontFamily: "var(--font-display)", fontSize: 13, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--wldm-pink)" }}>
+            <strong style={{ fontFamily: "var(--font-display)", fontSize: 13, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--wldm-pink-text)" }}>
               {a.robotsIssue.title}
             </strong>
           </div>

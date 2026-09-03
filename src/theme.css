@@ -1,52 +1,63 @@
-:root {
-  color-scheme: dark;
+@import "./fonts.css";
 
-  /* wldm.io brand tokens (extracted from wldm.io production site) */
-  --wldm-bg: #2a2b29;
-  --wldm-bg-raised: #333432;
-  --wldm-card: #353635;
-  --wldm-card-hover: #3d3e3c;
-  --wldm-border: #46473f;
-  --wldm-text-primary: #ffffff;
-  --wldm-text-secondary: #c9c9c2;
-  --wldm-text-muted: #a0a0a0;
+:root {
+  color-scheme: light;
+
+  /* wldm.io brand tokens — exact values from the live site's theme palette
+     (:root --background/--primary/--accent/--secondary/--text/--card-background)
+     and font stack (@font-face declarations for Roboto + TT_Lakes_Neue). */
+  --wldm-bg: #eeeade;
+  --wldm-bg-raised: #f7f5ee;
+  --wldm-card: #ffffff;
+  --wldm-card-hover: #f7f5ee;
+  --wldm-border: rgba(188, 192, 180, 0.5);
+  --wldm-border-strong: #bcc0b4;
+  --wldm-text-primary: #2a2a29;
+  --wldm-text-secondary: #52534b;
+  --wldm-text-muted: #7a7b6e;
   --wldm-accent: #e1ff01;
   --wldm-accent-ink: #1c2000;
+  --wldm-accent-text: #6b6000; /* accent hue, legible as text/borders on a light ground — the lime itself has ~1.1:1 contrast and is fill-only */
   --wldm-teal: #b8d3d8;
+  --wldm-teal-text: #2f5a66; /* teal hue, legible as text on a light ground (~1.6:1 for the raw pastel) */
   --wldm-pink: #d45987;
+  --wldm-pink-text: #a02f5c; /* pink hue, deepened for AA text contrast on a light ground */
   --wldm-blue: #1863dc;
+  --wldm-hover-tint: rgba(42, 42, 41, 0.035);
+  --wldm-header-bg: rgba(238, 234, 222, 0.86);
 
-  /* font stacks: Roboto matches wldm.io exactly (Google Fonts); Space Grotesk
-     approximates the site's proprietary TT Lakes Neue display face */
+  /* exact site fonts: Roboto (body) + TT Lakes Neue (display/headings/buttons) */
   --font-body: "Roboto", -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Space Grotesk", "Roboto", -apple-system, sans-serif;
+  --font-display: "TT Lakes Neue", "Roboto", -apple-system, sans-serif;
 
   /* chart surface + text (dataviz skill roles) */
   --surface-1: var(--wldm-card);
   --text-primary: var(--wldm-text-primary);
   --text-secondary: var(--wldm-text-secondary);
 
-  /* validated dark-mode categorical palette (skill default, re-validated
-     against --wldm-bg #2a2b29) — fixed order, one entity per slot, never cycled */
-  --series-1: #3987e5; /* blue    -> April */
+  /* categorical palette, fixed order, one entity per slot, never cycled */
+  --series-1: #1863dc; /* blue    -> April */
   --series-2: #d95926; /* orange  -> May */
   --series-3: #199e70; /* aqua    -> June */
-  --series-4: #c98500; /* yellow  -> July */
+  --series-4: #a5860a; /* yellow  -> July */
   --series-5: #d55181; /* magenta -> spare */
-  --series-6: #008300; /* green   -> spare (needs label relief) */
-  --series-7: #9085e9; /* violet  -> spare */
-  --series-8: #e66767; /* red     -> spare */
+  --series-6: #4b7a2f; /* green   -> spare */
+  --series-7: #7a6fd0; /* violet  -> spare */
+  --series-8: #c9483f; /* red     -> spare */
 
   /* diverging pair for correlation heatmap */
-  --diverging-neg: #3987e5;
-  --diverging-pos: #e66767;
-  --diverging-mid: #383835;
+  --diverging-neg: #1863dc;
+  --diverging-pos: #c9483f;
+  --diverging-mid: #d8dbce;
 
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
-  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 8px 24px rgba(0, 0, 0, 0.28);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 24px rgba(42, 42, 41, 0.08);
 }
+
+/* Single committed theme — wldm.io has no dark mode, so this page always renders
+   its exact light palette regardless of the viewer's system setting. */
 
 * {
   box-sizing: border-box;
@@ -88,7 +99,7 @@ p {
 }
 
 a {
-  color: var(--wldm-accent);
+  color: var(--wldm-blue);
 }
 
 ::selection {
@@ -115,7 +126,7 @@ a {
   letter-spacing: 0.14em;
   font-size: 12px;
   font-weight: 600;
-  color: var(--wldm-accent);
+  color: var(--wldm-text-secondary);
 }
 
 .section {
@@ -200,7 +211,7 @@ a {
 }
 
 .table-toggle:hover {
-  border-color: var(--wldm-accent);
+  border-color: var(--wldm-teal);
   color: var(--wldm-text-primary);
 }
 
@@ -233,7 +244,7 @@ a {
 }
 
 .data-table tbody tr:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--wldm-hover-tint);
 }
 
 @media (max-width: 720px) {

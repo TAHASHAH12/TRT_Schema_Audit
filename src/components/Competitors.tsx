@@ -7,10 +7,10 @@ export default function Competitors({ data }: { data: AuditPayload }) {
       <div className="container">
         <div className="section-head">
           <div className="eyebrow">Competitive schema comparison</div>
-          <h2 className="section-title">Gameday's top 3 organic competitors, by shared keywords</h2>
+          <h2 className="section-title">Gameday vs. two organic competitors, by shared keywords</h2>
           <p className="section-sub">
-            hims.com is the biggest by far, but its bot protection blocked both a direct scrape and a DataForSEO
-            fetch attempt — even the hardest competitor to out-rank is the hardest to reverse-engineer.
+            Schema pulled directly from each competitor's own TRT-relevant pages, the same way it was pulled from
+            Gameday's.
           </p>
         </div>
 

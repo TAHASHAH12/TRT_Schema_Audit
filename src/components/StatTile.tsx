@@ -18,7 +18,7 @@ export default function StatTile({ label, value, sub, accent, warn }: Props) {
           fontSize: 30,
           fontWeight: 700,
           marginTop: 8,
-          color: warn ? "var(--wldm-pink)" : accent ? "var(--wldm-accent)" : "var(--wldm-text-primary)",
+          color: warn ? "var(--wldm-pink)" : accent ? "var(--wldm-accent-text)" : "var(--wldm-text-primary)",
         }}
       >
         {value}

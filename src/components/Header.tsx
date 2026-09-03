@@ -21,22 +21,49 @@ export default function Header() {
         position: "sticky",
         top: 0,
         zIndex: 50,
-        background: "rgba(42, 43, 41, 0.86)",
-        backdropFilter: "blur(10px)",
-        borderBottom: "1px solid var(--wldm-border)",
+        background: "var(--wldm-header-bg)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+        borderBottom: "2px solid var(--wldm-accent)",
+        boxShadow: "0 8px 20px rgba(42, 42, 41, 0.05)",
       }}
     >
       <div
         className="container"
-        style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 62 }}
+        style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 68, gap: 24 }}
       >
-        <a href="https://wldm.io" target="_blank" rel="noreferrer" style={{ display: "flex", alignItems: "center" }}>
-          <img src="/wldm-logo.svg" alt="WLDM" height={22} style={{ display: "block" }} />
+        <a
+          href="https://wldm.io"
+          target="_blank"
+          rel="noreferrer"
+          style={{ display: "flex", alignItems: "center", gap: 14, flexShrink: 0 }}
+        >
+          <img src="/wldm-logo.svg" alt="WLDM" height={20} style={{ display: "block" }} />
+          <span
+            style={{
+              width: 1,
+              height: 22,
+              background: "var(--wldm-border-strong)",
+            }}
+          />
+          <span
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: 11.5,
+              fontWeight: 600,
+              textTransform: "uppercase",
+              letterSpacing: "0.1em",
+              color: "var(--wldm-text-secondary)",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Schema Audit
+          </span>
         </a>
         <nav
           style={{
             display: "flex",
-            gap: 13,
+            gap: 4,
             overflowX: "auto",
             scrollbarWidth: "none",
           }}
@@ -49,14 +76,25 @@ export default function Header() {
                 background: "none",
                 border: "none",
                 color: "var(--wldm-text-secondary)",
-                fontFamily: "var(--font-body)",
-                fontSize: 12.5,
+                fontFamily: "var(--font-display)",
+                fontWeight: 600,
+                fontSize: 11,
+                textTransform: "uppercase",
+                letterSpacing: "0.04em",
                 cursor: "pointer",
                 whiteSpace: "nowrap",
-                padding: "4px 0",
+                padding: "8px 10px",
+                borderRadius: 999,
+                transition: "background 0.15s ease, color 0.15s ease",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--wldm-text-primary)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--wldm-text-secondary)")}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "var(--wldm-text-primary)";
+                e.currentTarget.style.background = "var(--wldm-bg-raised)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "var(--wldm-text-secondary)";
+                e.currentTarget.style.background = "none";
+              }}
             >
               {l.label}
             </button>

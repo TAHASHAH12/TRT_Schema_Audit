@@ -40,7 +40,7 @@ export default function Wikidata({ data }: { data: AuditPayload }) {
             <div style={{ fontSize: 12.5, color: "var(--wldm-text-muted)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
               Verified correct on inspection
             </div>
-            <div style={{ fontFamily: "var(--font-display)", fontSize: 30, fontWeight: 700, marginTop: 8, color: "var(--wldm-accent)" }}>
+            <div style={{ fontFamily: "var(--font-display)", fontSize: 30, fontWeight: 700, marginTop: 8, color: "var(--wldm-accent-text)" }}>
               {fmtInt(w.verifiedCorrect)}
             </div>
           </div>
@@ -48,8 +48,66 @@ export default function Wikidata({ data }: { data: AuditPayload }) {
             <div style={{ fontSize: 12.5, color: "var(--wldm-text-muted)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
               No Wikidata entity at all
             </div>
-            <div style={{ fontFamily: "var(--font-display)", fontSize: 30, fontWeight: 700, marginTop: 8, color: "var(--wldm-pink)" }}>
+            <div style={{ fontFamily: "var(--font-display)", fontSize: 30, fontWeight: 700, marginTop: 8, color: "var(--wldm-pink-text)" }}>
               {fmtInt(w.noEntityFound)}
+            </div>
+          </div>
+        </div>
+
+        <div className="card" style={{ padding: "20px 24px", marginBottom: 28 }}>
+          <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 14, color: "var(--wldm-text-secondary)" }}>
+            All {w.totalKeywords} keywords, by outcome
+          </div>
+          <div style={{ display: "flex", height: 28, borderRadius: 6, overflow: "hidden", border: "1px solid var(--wldm-border)" }}>
+            <div
+              title={`Verified correct: ${w.verifiedCorrect}`}
+              style={{
+                width: `${(w.verifiedCorrect / w.totalKeywords) * 100}%`,
+                background: "var(--wldm-accent-text)",
+                minWidth: w.verifiedCorrect ? 2 : 0,
+              }}
+            />
+            <div
+              title={`Above threshold, wrong entity: ${w.scoredAboveThreshold - w.verifiedCorrect}`}
+              style={{
+                width: `${((w.scoredAboveThreshold - w.verifiedCorrect) / w.totalKeywords) * 100}%`,
+                background: "var(--wldm-pink-text)",
+                minWidth: 2,
+              }}
+            />
+            <div
+              title={`Below threshold, low confidence: ${w.lowConfidence}`}
+              style={{
+                width: `${(w.lowConfidence / w.totalKeywords) * 100}%`,
+                background: "var(--wldm-border-strong)",
+                minWidth: 2,
+              }}
+            />
+            <div
+              title={`No Wikidata entity: ${w.noEntityFound}`}
+              style={{
+                width: `${(w.noEntityFound / w.totalKeywords) * 100}%`,
+                background: "var(--wldm-text-muted)",
+                minWidth: 2,
+              }}
+            />
+          </div>
+          <div className="legend" style={{ marginTop: 14 }}>
+            <div className="legend-item">
+              <span className="legend-swatch" style={{ background: "var(--wldm-accent-text)" }} />
+              Verified correct — {w.verifiedCorrect}
+            </div>
+            <div className="legend-item">
+              <span className="legend-swatch" style={{ background: "var(--wldm-pink-text)" }} />
+              Wrong entity — {w.scoredAboveThreshold - w.verifiedCorrect}
+            </div>
+            <div className="legend-item">
+              <span className="legend-swatch" style={{ background: "var(--wldm-border-strong)" }} />
+              Low confidence — {w.lowConfidence}
+            </div>
+            <div className="legend-item">
+              <span className="legend-swatch" style={{ background: "var(--wldm-text-muted)" }} />
+              No entity found — {w.noEntityFound}
             </div>
           </div>
         </div>
@@ -60,7 +118,7 @@ export default function Wikidata({ data }: { data: AuditPayload }) {
         >
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
             <span style={{ width: 9, height: 9, borderRadius: "50%", background: "var(--wldm-pink)", flexShrink: 0 }} />
-            <strong style={{ fontFamily: "var(--font-display)", fontSize: 13, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--wldm-pink)" }}>
+            <strong style={{ fontFamily: "var(--font-display)", fontSize: 13, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--wldm-pink-text)" }}>
               A threshold score is not a sense check
             </strong>
           </div>
@@ -101,7 +159,7 @@ export default function Wikidata({ data }: { data: AuditPayload }) {
           </div>
 
           <div>
-            <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 10, color: "var(--wldm-pink)" }}>
+            <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 10, color: "var(--wldm-pink-text)" }}>
               Above threshold, still wrong entity
             </div>
             <div className="card" style={{ padding: 4, maxHeight: 420, overflowY: "auto" }}>

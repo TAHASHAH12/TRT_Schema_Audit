@@ -1,9 +1,9 @@
 import type { AuditPayload } from "../types";
 
 const SEVERITY_COLOR: Record<string, string> = {
-  high: "var(--wldm-pink)",
-  medium: "var(--wldm-accent)",
-  low: "var(--wldm-teal)",
+  high: "var(--wldm-pink-text)",
+  medium: "var(--wldm-accent-text)",
+  low: "var(--wldm-teal-text)",
 };
 
 export default function Defects({ data }: { data: AuditPayload }) {
@@ -45,7 +45,7 @@ export default function Defects({ data }: { data: AuditPayload }) {
                     <code style={{ fontSize: 11, color: "var(--wldm-text-muted)", display: "block", marginBottom: 4 }}>
                       {ex.page}
                     </code>
-                    <code style={{ fontSize: 11.5, color: "var(--wldm-teal)", display: "block", marginBottom: 4 }}>
+                    <code style={{ fontSize: 11.5, color: "var(--wldm-teal-text)", display: "block", marginBottom: 4 }}>
                       {ex.field}
                     </code>
                     <code style={{ fontSize: 12.5, color: "var(--wldm-text-primary)" }}>{ex.value}</code>

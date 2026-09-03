@@ -28,6 +28,7 @@ export interface AuditPayload {
     totalKeywords: number;
     scoredAboveThreshold: number;
     verifiedCorrect: number;
+    lowConfidence: number;
     noEntityFound: number;
     method: string;
     verifiedMatches: { keyword: string; qid: string; label: string; description: string; score: number }[];

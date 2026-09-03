@@ -68,6 +68,7 @@
     "totalKeywords": 100,
     "scoredAboveThreshold": 15,
     "verifiedCorrect": 4,
+    "lowConfidence": 5,
     "noEntityFound": 80,
     "method": "The top 100 Ahrefs keywords by volume were queried against Wikidata, then every candidate above the 0.55 semantic-similarity threshold was re-read by its description rather than trusted on score. Medical/pharma keywords hit a distinct failure mode here: Wikidata is heavily populated with scholarly-article metadata, so a query like \"low testosterone\" or \"testosterone levels\" doesn't resolve to a general concept — it resolves to one specific 2010 or 1998 journal article that happens to share the title, which is a wrong-type match even when the topic looks right.",
     "verifiedMatches": [
@@ -138,7 +139,6 @@
     {"topic": "Clinic geo-location", "evidence": "every LocalBusiness node has an address and a generic Google-Maps search link (hasMap)", "gapType": "no GeoCoordinates (lat/long) on any sampled location, and no openingHoursSpecification"}
   ],
   "competitors": [
-    {"domain": "hims.com", "domainRating": 79, "orgTraffic": 868007, "keywordsCommon": 1511, "schemaTypes": null, "note": "Blocked by bot protection — could not be scraped directly or via DataForSEO's crawler (403 on both). The biggest competitor is also the hardest to reverse-engineer."},
     {"domain": "honehealth.com", "domainRating": 66, "orgTraffic": 104502, "keywordsCommon": 978, "schemaTypes": ["MedicalOrganization", "WebSite"], "note": "Homepage only — zero JSON-LD found on their actual TRT service page (/mens/testosterone-replacement-therapy/). Gameday's location pages already carry more schema than this competitor's core page."},
     {"domain": "klinic.com", "domainRating": 35, "orgTraffic": 41295, "keywordsCommon": 360, "schemaTypes": ["MedicalOrganization", "Organization", "FAQPage"], "note": "Smaller competitor, but has real FAQPage markup with Question/Answer pairs — exactly the gap Gameday has on far more FAQ content."}
   ],
